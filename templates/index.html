@@ -4,40 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IP Information</title>
-    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <div class="bg-yellow-100 dark:bg-gray-800 transition-colors duration-300">
       <div class="flex justify-center items-center min-h-screen">
-        <div class="bg-white dark:bg-gray-900 dark:text-white shadow-md rounded-lg p-8 w-full max-w-md">
+        <div
+          class="bg-white dark:bg-gray-900 dark:text-white shadow-md rounded-lg p-8 w-full max-w-md"
+        >
           <div class="flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-center mb-6 text-yellow-600 dark:text-yellow-500">IP Information Finder</h1>
-            <button id="theme-toggle" class="ml-auto bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 p-2 rounded transition-colors duration-300">
+            <h1
+              class="text-3xl font-bold text-center mb-6 text-yellow-600 dark:text-yellow-500"
+            >
+              IP Information Finder
+            </h1>
+            <button
+              id="theme-toggle"
+              class="ml-auto bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 p-2 rounded transition-colors duration-300"
+            >
               <i class="bx bx-moon"></i>
             </button>
           </div>
 
-          <button id="fetch-ip-btn" class="bg-yellow-600 dark:bg-yellow-500 dark:text-gray-900 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-800 dark:hover:bg-yellow-600 transition duration-300 w-full">
+          <button
+            id="fetch-ip-btn"
+            class="bg-yellow-600 dark:bg-yellow-500 dark:text-gray-900 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-800 dark:hover:bg-yellow-600 transition duration-300 w-full"
+          >
             Get IP Information
           </button>
 
-          <div id="loading" class="text-center text-gray-600 dark:text-gray-300 mt-4 hidden">
+          <div
+            id="loading"
+            class="text-center text-gray-600 dark:text-gray-300 mt-4 hidden"
+          >
             Loading...
           </div>
 
-          <div id="ip-info" class="mt-6 p-4 bg-mustard dark:bg-yellow-700 rounded-lg shadow-lg hidden">
-            <h2 class="text-lg font-bold mb-4">IP Information:</h2>
-            <p><strong>Public IPv4 Address:</strong> <span id="ip"></span></p>
+          <div
+            id="ip-info"
+            class="mt-6 p-4 bg-mustard dark:bg-yellow-700 rounded-lg shadow-lg hidden"
+          >
+            <p><strong>Public IPv4 Address:</strong> <span id="ipv4"></span></p>
+            <p><strong>Public IPv6 Address:</strong> <span id="ipv6"></span></p>
             <p><strong>City:</strong> <span id="city"></span></p>
             <p><strong>Region:</strong> <span id="region"></span></p>
             <p><strong>Country:</strong> <span id="country"></span></p>
             <p><strong>ISP:</strong> <span id="isp"></span></p>
             <p><strong>ASN:</strong> <span id="asn"></span></p>
-            <p><strong>Latitude, Longitude:</strong> <span id="latlng"></span></p>
-          </div>
+            <p>
+              <strong>Latitude, Longitude:</strong> <span id="latlng"></span>
+            </p>
         </div>
+        <div
+        id="speed-info"
+        class="mt-6 p-4 bg-mustard dark:bg-yellow-700 rounded-lg shadow-lg hidden"
+      >
+        <h2 class="text-lg font-bold mt-6">Speed Test Results:</h2>
+        <p>
+          <strong>Download Speed:</strong>
+          <span id="download_speed"></span> Mbps
+        </p>
+        <p>
+          <strong>Upload Speed:</strong>
+          <span id="upload_speed"></span> Mbps
+        </p>
+        <p><strong>Ping:</strong> <span id="ping"></span> ms</p>
+      </div>
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
