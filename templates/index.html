@@ -4,87 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IP Information</title>
-
-    <!-- Tailwind CSS CDN -->
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-      /* Custom Tailwind config */
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              mustard: '#FFDB58',
-            },
-          },
-        },
-      };
-    </style>
   </head>
-  <body class="bg-gray-100">
-    <div class="flex justify-center items-center min-h-screen">
-      <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-        <h1 class="text-3xl font-bold text-center mb-6 text-mustard">
-          IP Information Finder
-        </h1>
+  <body>
+    <div class="bg-yellow-100 dark:bg-gray-800 transition-colors duration-300">
+      <div class="flex justify-center items-center min-h-screen">
+        <div class="bg-white dark:bg-gray-900 dark:text-white shadow-md rounded-lg p-8 w-full max-w-md">
+          <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-center mb-6 text-yellow-600 dark:text-yellow-500">IP Information Finder</h1>
+            <button id="theme-toggle" class="ml-auto bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 p-2 rounded transition-colors duration-300">
+              <i class="bx bx-moon"></i>
+            </button>
+          </div>
 
-        <button
-          id="fetch-ip-btn"
-          class="bg-yellow-600 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-800 transition duration-300 w-full"
-        >
-          Get IP Information
-        </button>
+          <button id="fetch-ip-btn" class="bg-yellow-600 dark:bg-yellow-500 dark:text-gray-900 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-800 dark:hover:bg-yellow-600 transition duration-300 w-full">
+            Get IP Information
+          </button>
 
-        <div id="loading" class="text-center text-gray-600 mt-4 hidden">
-          Loading...
-        </div>
+          <div id="loading" class="text-center text-gray-600 dark:text-gray-300 mt-4 hidden">
+            Loading...
+          </div>
 
-        <div
-          id="ip-info"
-          class="mt-6 p-4 bg-mustard rounded-lg shadow-lg hidden"
-        >
-          <h2 class="text-lg font-bold mb-4">IP Information:</h2>
-          <p><strong>Public IPv4 Address:</strong> <span id="ip"></span></p>
-          <p><strong>City:</strong> <span id="city"></span></p>
-          <p><strong>Region:</strong> <span id="region"></span></p>
-          <p><strong>Country:</strong> <span id="country"></span></p>
-          <p><strong>ISP:</strong> <span id="isp"></span></p>
-          <p><strong>ASN:</strong> <span id="asn"></span></p>
-          <p><strong>Latitude, Longitude:</strong> <span id="latlng"></span></p>
+          <div id="ip-info" class="mt-6 p-4 bg-mustard dark:bg-yellow-700 rounded-lg shadow-lg hidden">
+            <h2 class="text-lg font-bold mb-4">IP Information:</h2>
+            <p><strong>Public IPv4 Address:</strong> <span id="ip"></span></p>
+            <p><strong>City:</strong> <span id="city"></span></p>
+            <p><strong>Region:</strong> <span id="region"></span></p>
+            <p><strong>Country:</strong> <span id="country"></span></p>
+            <p><strong>ISP:</strong> <span id="isp"></span></p>
+            <p><strong>ASN:</strong> <span id="asn"></span></p>
+            <p><strong>Latitude, Longitude:</strong> <span id="latlng"></span></p>
+          </div>
         </div>
       </div>
     </div>
-
-    <script>
-      document
-        .getElementById("fetch-ip-btn")
-        .addEventListener("click", function () {
-          document.getElementById("loading").style.display = "block";
-          document.getElementById("ip-info").style.display = "none";
-
-          fetch("/api/get_ip_info")
-            .then((response) => response.json())
-            .then((data) => {
-              document.getElementById("ip").textContent = data.ip;
-              document.getElementById("city").textContent = data.city;
-              document.getElementById("region").textContent = data.region;
-              document.getElementById("country").textContent =
-                data.country_name;
-              document.getElementById("isp").textContent = data.org;
-              document.getElementById("asn").textContent = data.asn;
-              document.getElementById(
-                "latlng"
-              ).textContent = `${data.latitude}, ${data.longitude}`;
-
-              document.getElementById("loading").style.display = "none";
-              document.getElementById("ip-info").style.display = "block";
-            })
-            .catch((error) => {
-              console.error("Error fetching IP info:", error);
-              alert("Failed to fetch IP information.");
-              document.getElementById("loading").style.display = "none";
-            });
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>
