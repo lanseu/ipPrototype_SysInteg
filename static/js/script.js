@@ -60,11 +60,10 @@ document.getElementById("fetch-ip-btn").addEventListener("click", function () {
 
         // Speed Test Data
         document.getElementById("download_speed").textContent =
-          data.speed_test?.download_speed_mbps || "N/A";
+          data.download_speed || "N/A";
         document.getElementById("upload_speed").textContent =
-          data.speed_test?.upload_speed_mbps || "N/A";
-        document.getElementById("ping").textContent =
-          data.speed_test?.ping_ms || "N/A";
+          data.upload_speed || "N/A";
+        document.getElementById("ping").textContent = data.ping || "N/A";
 
         document.getElementById("loading").style.display = "none";
         document.getElementById("speed-info").style.display = "block";
