@@ -74,9 +74,9 @@ async def handle_get_ip_info():
             'languages': ip_info.get('languages'),
             'country_calling_code': ip_info.get('country_calling_code'),
             'currency': ip_info.get('currency'),
-            'download_speed': f"{download_speed:.2f} Mbps" if isinstance(download_speed, (int, float)) else download_speed,
-            'upload_speed': f"{upload_speed:.2f} Mbps" if isinstance(upload_speed, (int, float)) else upload_speed,
-            'ping': f"{ping:.2f} ms" if isinstance(ping, (int, float)) else ping
+            'download_speed': f"{download_speed:.2f} " if isinstance(download_speed, (int, float)) else download_speed,
+            'upload_speed': f"{upload_speed:.2f}" if isinstance(upload_speed, (int, float)) else upload_speed,
+            'ping': f"{ping:.2f} " if isinstance(ping, (int, float)) else ping
         })
 
     except Exception as e:
