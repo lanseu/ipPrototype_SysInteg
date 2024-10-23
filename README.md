@@ -18,10 +18,16 @@ To install the required dependencies, run the following command:
 ```bash
 pip install requests 
 ```
+```bash
+pip install flask
+```
+```bash
+pip install speedtest-cli 
+```
 
 ## Usage:
 Once you've installed the necessary libraries, you can run the Python script by executing:
 
 ```bash
-python get_ip_info.py
+python app.py
 ```
