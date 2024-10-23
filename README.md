@@ -1,9 +1,27 @@
-**IP Prototype**
+# IP Address Information Prototype
 
-**Install requests**
+This Python application fetches and displays the computer's current public IP address and additional geolocation information using the **ipapi.co** API. The program provides key details such as the IPv4 address, ISP, geolocation, timezone, and more.
 
-"_pip install requests_"
+## Features:
+- Retrieve public IPv4 address.
+- Display detailed geolocation information including city, region, country, continent, and postal code.
+- Provide ISP information and ASN (Autonomous System Number).
+- Display timezone, UTC offset, and country-specific details like calling code, languages, and currency.
 
-**Then run the python code:**
+## Requirements:
+- Python 3.x
+- `requests` library for making HTTP requests
 
-"_python get_ip_info.py_"
+## Installation:
+To install the required dependencies, run the following command:
+
+```bash
+pip install requests 
+```
+
+## Usage:
+Once you've installed the necessary libraries, you can run the Python script by executing:
+
+```bash
+python get_ip_info.py
+```
